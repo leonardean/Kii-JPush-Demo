@@ -1,0 +1,31 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 20
+    buildToolsVersion "20.0.0"
+
+    defaultConfig {
+        applicationId "com.example.leonardo.test"
+        minSdkVersion 13
+        targetSdkVersion 20
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile files('libs/KiiCloudStorageSDK_release_v2.1.27_0a567d0.jar')
+    compile files('libs/jpush-sdk-release1.7.0.jar')
+    compile files('libs/native_lib.jar')
+    compile files('libs/JSON-java-master.jar')
+    compile 'com.google.android.gms:play-services:6.1.11'
+    compile 'com.android.support:appcompat-v7:20.0.0'
+}

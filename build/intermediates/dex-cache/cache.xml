@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/leonardo/Documents/Kii Work/Jpush Demo/Test/app/libs/jpush-sdk-release1.7.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="7c1b3d49baa7c2b66461fe638376de02c1aeccb6">
+        <dex dex="/Users/leonardo/Documents/Kii Work/Jpush Demo/Test/app/build/intermediates/pre-dexed/debug/jpush-sdk-release1.7.0-46a15d5d3e5a46170c667b2767cdae243e9acdde.jar" />
+    </item>
+    <item
+        jar="/Users/leonardo/Documents/Kii Work/Jpush Demo/Test/app/libs/JSON-java-master.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="44d753bc247921283f6df8f6ea187d3d7669a9a2">
+        <dex dex="/Users/leonardo/Documents/Kii Work/Jpush Demo/Test/app/build/intermediates/pre-dexed/debug/JSON-java-master-8fb0769d7c289a55fe5532285d887168acf32228.jar" />
+    </item>
+    <item
+        jar="/Users/leonardo/Documents/android-sdk-macosx/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa">
+        <dex dex="/Users/leonardo/Documents/Kii Work/Jpush Demo/Test/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-19efaffd7b48f8f47864a03d87a359c6ab5e2a53.jar" />
+    </item>
+    <item
+        jar="/Users/leonardo/Documents/Kii Work/Jpush Demo/Test/app/libs/native_lib.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="7a5b40879f0572f05485430fe5940452fccf052b">
+        <dex dex="/Users/leonardo/Documents/Kii Work/Jpush Demo/Test/app/build/intermediates/pre-dexed/debug/native_lib-96f5dfe3bd6030f5891c287e5dde1082f722096a.jar" />
+    </item>
+    <item
+        jar="/Users/leonardo/Documents/Kii Work/Jpush Demo/Test/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.11/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="0f700f6802ba1a1f1fa7ac26d5db0666a89d75a6">
+        <dex dex="/Users/leonardo/Documents/Kii Work/Jpush Demo/Test/app/build/intermediates/pre-dexed/debug/classes-1f2d19b4aa01d32937ef2bcf60e1456e2eb309c4.jar" />
+    </item>
+    <item
+        jar="/Users/leonardo/Documents/Kii Work/Jpush Demo/Test/app/libs/KiiCloudStorageSDK_release_v2.1.27_0a567d0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="a86ae8c669241641ecf01db8bb3f22bce4c23033">
+        <dex dex="/Users/leonardo/Documents/Kii Work/Jpush Demo/Test/app/build/intermediates/pre-dexed/debug/KiiCloudStorageSDK_release_v2.1.27_0a567d0-8cda0adb39df2c30e1c981b8ae1ace7f609c3499.jar" />
+    </item>
+    <item
+        jar="/Users/leonardo/Documents/Kii Work/Jpush Demo/Test/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d">
+        <dex dex="/Users/leonardo/Documents/Kii Work/Jpush Demo/Test/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-81607cf89e44e00f4d362a08b5bfcfc53b6b726e.jar" />
+    </item>
+    <item
+        jar="/Users/leonardo/Documents/Kii Work/Jpush Demo/Test/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef">
+        <dex dex="/Users/leonardo/Documents/Kii Work/Jpush Demo/Test/app/build/intermediates/pre-dexed/debug/classes-88b7fd3c5b6dd76df28aa964e2d9cc1e805389bf.jar" />
+    </item>
+    <item
+        jar="/Users/leonardo/Documents/Kii Work/Jpush Demo/Test/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0">
+        <dex dex="/Users/leonardo/Documents/Kii Work/Jpush Demo/Test/app/build/intermediates/pre-dexed/debug/classes-e7bc94d7417ffae58fd6c2a127395e84e751e275.jar" />
+    </item>
+
+</items>
