@@ -34,7 +34,7 @@ public class LoginActivity extends Activity {
     private Button bucketTrigger;
 
     private String REMOTECTRLBUCKET = "remoteControl";
-
+    private boolean DEVELOPMENT = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,15 +47,6 @@ public class LoginActivity extends Activity {
         mNotificationManager.cancelAll();
         //initialize jpush interface
         JPushInterface.init(this);
-
-        // If the id is saved in the preference, it skip the registration and just install push.
-        String regId = JPushPreference.getRegistrationId(this.getApplicationContext());
-        if (regId.isEmpty()) {
-            registerJPush();
-            Toast.makeText(LoginActivity.this, "Register JPush done", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(LoginActivity.this, "Register JPush done before", Toast.LENGTH_SHORT).show();
-        }
 
         signUp = (Button) findViewById(R.id.btnSignUp);
         signIn = (Button) findViewById(R.id.btnSignIn);
@@ -96,7 +87,7 @@ public class LoginActivity extends Activity {
                             Toast.makeText(LoginActivity.this, "Error login: " + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                             return;
                         }
-                        Toast.makeText(LoginActivity.this, "Logged in as " + user.getUsername(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Login successful as: " + user.getUsername(), Toast.LENGTH_LONG).show();
                     }
                 }, username, password);
             }
@@ -105,18 +96,27 @@ public class LoginActivity extends Activity {
         pushInstall.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean development = false;
-                final String regId = JPushInterface.getUdid(LoginActivity.this.getApplicationContext());
-                KiiUser.pushInstallation(PushBackend.JPUSH, development).install(regId, new KiiPushCallBack() {
-                    public void onInstallCompleted(int taskId, Exception e) {
-                        if (e != null) {
-                            Toast.makeText(LoginActivity.this, "Error install: " + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                            return;
+                String regId = JPushPreference.getRegistrationId(LoginActivity.this.getApplicationContext());
+                // If the id is saved in the preference, it skip the registration
+                if (regId.isEmpty()) {
+                    JPushInterface.resumePush(LoginActivity.this.getApplicationContext());
+                    final String pushRegId = JPushInterface.getUdid(LoginActivity.this.getApplicationContext());
+                    JPushInterface.setAlias(LoginActivity.this.getApplicationContext(), pushRegId, null);
+                    // install user device
+                    KiiUser.pushInstallation(PushBackend.JPUSH, DEVELOPMENT).install(pushRegId, new KiiPushCallBack() {
+                        public void onInstallCompleted(int taskId, Exception e) {
+                            if (e != null) {
+                                Toast.makeText(LoginActivity.this, "Error install: " + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                            // if all succeeded, locally save registration ID to preference.
+                            JPushPreference.setRegistrationId(LoginActivity.this.getApplicationContext(), pushRegId);
+                            Toast.makeText(LoginActivity.this, "Device binding done", Toast.LENGTH_SHORT).show();
                         }
-                        Toast.makeText(LoginActivity.this, "JPush installation done", Toast.LENGTH_SHORT).show();
-                        JPushPreference.setRegistrationId(LoginActivity.this.getApplicationContext(), regId);
-                    }
-                });
+                    });
+                } else {
+                    Toast.makeText(LoginActivity.this, "Device binding done before\n So... nothing has just been done", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -195,12 +195,5 @@ public class LoginActivity extends Activity {
     protected void onPause() {
         JPushInterface.onPause(this);
         super.onPause();
-    }
-
-    private void registerJPush() {
-        JPushInterface.resumePush(this.getApplicationContext());
-        String regId = JPushInterface.getUdid(this.getApplicationContext());
-        JPushInterface.setAlias(this.getApplicationContext(), regId, null);
-        JPushPreference.setRegistrationId(this.getApplicationContext(), regId);
     }
 }
