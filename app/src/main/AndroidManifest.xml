@@ -33,6 +33,19 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity" 
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" 
+            android:configChanges="orientation|keyboardHidden">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.example.leonardo.test"/>
+            </intent-filter>
+        </activity>
+
+
+        <service android:name="cn.jpush.android.service.DownloadService" android:enabled="true" android:exported="false"/>
         <service
             android:name="cn.jpush.android.service.PushService"
             android:enabled="true"
